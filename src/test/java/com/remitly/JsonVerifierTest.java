@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -19,13 +20,13 @@ public class JsonVerifierTest {
 private JsonVerifier verifier;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         verifier = new JsonVerifier();
     }
 
     private String getJsonData(String path) throws URISyntaxException, IOException {
         URL resourceUrl = getClass().getClassLoader().getResource(path);
-        URI resourceUri = resourceUrl.toURI();
+        URI resourceUri = Objects.requireNonNull(resourceUrl).toURI();
         return new String(Files.readAllBytes(Paths.get(resourceUri)));
     }
 

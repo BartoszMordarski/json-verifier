@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class JsonVerifier {
 
     //path can be changed but the analyze function will work fine with any path
-    private String path = "PolicyDocument;Statement;Resource";
+    private final String path = "PolicyDocument;Statement;Resource";
 
 
 
